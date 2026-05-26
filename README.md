@@ -61,7 +61,7 @@ OPENAI_MODEL=Pro/deepseek-ai/DeepSeek-R1
 ### 1. 从真实题目 URL 读取题面
 
 ```bash
-npm run learn:url -- --url "[https://www.bjfuacm.com/contest/849/problem/1](https://www.example.com/xxx/problem/1)"
+npm run learn:url -- --url "https://www.example.com/xxx/problem/1"
 ```
 
 如果需要登录，会打开浏览器让你手动登录。登录状态保存在 `.playwright-profile`。
@@ -69,7 +69,7 @@ npm run learn:url -- --url "[https://www.bjfuacm.com/contest/849/problem/1](http
 命令会生成类似目录：
 
 ```text
-output/problems/001-JourneytotheWest/
+output/problems/001/
   problem.json
   statement.md
   main.cpp
@@ -80,20 +80,20 @@ output/problems/001-JourneytotheWest/
 ### 2. 调用 LLM 生成题解草稿
 
 ```bash
-npm run llm:solution -- --from "output/problems/001-JourneytotheWest/problem.json"
+npm run llm:solution -- --from "output/problems/001/problem.json"
 ```
 
 生成：
 
 ```text
-output/problems/001-JourneytotheWest/llm-solution.md
-output/problems/001-JourneytotheWest/solution.cpp
+output/problems/001/llm-solution.md
+output/problems/001/solution.cpp
 ```
 
 如果文件已存在，默认不会覆盖。需要覆盖时：
 
 ```bash
-npm run llm:solution -- --from "output/problems/001-JourneytotheWest/problem.json" --overwrite
+npm run llm:solution -- --from "output/problems/001/problem.json" --overwrite
 ```
 
 ### 3. 本地跑样例
@@ -101,13 +101,13 @@ npm run llm:solution -- --from "output/problems/001-JourneytotheWest/problem.jso
 把你想测试的代码放进 `main.cpp`，然后运行：
 
 ```bash
-npm run run:samples -- --problem-dir "output/problems/001-JourneytotheWest"
+npm run run:samples -- --problem-dir "output/problems/001"
 ```
 
 ### 4. 提交辅助
 
 ```bash
-npm run assist:submit -- --from "output/problems/001-JourneytotheWest/problem.json"
+npm run assist:submit -- --from "output/problems/001/problem.json"
 ```
 
 它会：
@@ -121,13 +121,13 @@ npm run assist:submit -- --from "output/problems/001-JourneytotheWest/problem.js
 如果只想打开页面、不填入也不点击：
 
 ```bash
-npm run assist:submit -- --from "output/problems/001-JourneytotheWest/problem.json" --no-submit
+npm run assist:submit -- --from "output/problems/001/problem.json" --no-submit
 ```
 
 ### 5. 最简批量流程：输入题目列表页 URL
 
 ```bash
-npm run solve -- --url "https://www.bjfuacm.com/contest/849/problems"
+npm run solve -- --url "https://www.example.com/xxx/problems"
 ```
 
 它会读取这个页面中的题目列表，按题号依次打开每一道题，创建本地练习目录，调用 LLM 生成每题的提交代码，然后自动填入代码框并点击 Submit。
@@ -171,13 +171,13 @@ npm run solve:url -- --url "https://www.example.com/xxx/problem/1" --no-submit
 ```bash
 npm run scan:contest-index -- --file "samples/saved-pages/contest-list.html"
 npm run scan:contest-problems -- --file "samples/saved-pages/contest-problems.html"
-npm run scan:problem -- --file "samples/saved-pages/problem-journey-to-the-west.html"
+npm run scan:problem -- --file "samples/saved-pages/problem.html"
 ```
 
 生成本地题目目录：
 
 ```bash
-npm run init-problem -- --from "output/problems/JourneytotheWest/problem.json"
+npm run init-problem -- --from "output/problems/XXX/problem.json"
 ```
 
 ## 真实比赛流程
@@ -201,17 +201,17 @@ npm run dev
 npm run typecheck
 npm run scan:contest-index -- --file "samples/saved-pages/contest-list.html"
 npm run scan:contest-problems -- --file "samples/saved-pages/contest-problems.html"
-npm run scan:problem -- --file "samples/saved-pages/problem-journey-to-the-west.html"
+npm run scan:problem -- --file "samples/saved-pages/problem.html"
 npm run scan:url -- --url "https://www.example.com/xxx/problem/1"
 npm run flow -- --contest-keyword "2025-name-OJ-实验" --problem-index 1
 npm run learn:url -- --url "https://www.example.com/xxx/problem/1"
-npm run llm:solution -- --from "output/problems/001-JourneytotheWest/problem.json"
+npm run llm:solution -- --from "output/problems/001/problem.json"
 npm run solve -- --url "https://www.example.com/xxx/problems"
 npm run solve:page -- --url "https://www.example.com/xxx/problems"
 npm run solve:url -- --url "https://www.example.com/xxx/problem/1"
-npm run assist:submit -- --from "output/problems/001-JourneytotheWest/problem.json"
-npm run init-problem -- --from "output/problems/JourneytotheWest/problem.json"
-npm run run:samples -- --problem-dir "output/problems/001-JourneytotheWest"
+npm run assist:submit -- --from "output/problems/001/problem.json"
+npm run init-problem -- --from "output/problems/xxx/problem.json"
+npm run run:samples -- --problem-dir "output/problems/001"
 npm run analyze:submission -- --status CE
 ```
 
