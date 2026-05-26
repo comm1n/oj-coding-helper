@@ -38,9 +38,9 @@ USER_DATA_DIR=.playwright-profile
 HEADLESS=false
 
 ENABLE_LLM=true
-OPENAI_API_KEY=你的硅基流动_API_Key
-OPENAI_BASE_URL=https://api.siliconflow.cn/v1
-OPENAI_MODEL=Qwen/Qwen2.5-72B-Instruct
+OPENAI_API_KEY=你的API_Key
+OPENAI_BASE_URL=
+OPENAI_MODEL=
 
 # 默认自动填入代码并点击 Submit。设为 false 可全局关闭提交动作。
 ENABLE_REMOTE_SUBMIT_ASSIST=true
@@ -61,7 +61,7 @@ OPENAI_MODEL=Pro/deepseek-ai/DeepSeek-R1
 ### 1. 从真实题目 URL 读取题面
 
 ```bash
-npm run learn:url -- --url "https://www.bjfuacm.com/contest/849/problem/1"
+npm run learn:url -- --url "[https://www.bjfuacm.com/contest/849/problem/1](https://www.example.com/xxx/problem/1)"
 ```
 
 如果需要登录，会打开浏览器让你手动登录。登录状态保存在 `.playwright-profile`。
@@ -143,25 +143,25 @@ solution.cpp
 如果文件已存在，默认不会覆盖。需要重新生成时：
 
 ```bash
-npm run solve -- --url "https://www.bjfuacm.com/contest/849/problems" --overwrite
+npm run solve -- --url "https://www.example.com/xxx/problems" --overwrite
 ```
 
 如果只生成代码、不提交：
 
 ```bash
-npm run solve -- --url "https://www.bjfuacm.com/contest/849/problems" --no-submit
+npm run solve -- --url "https://www.example.com/xxx/problems" --no-submit
 ```
 
 如果只想处理单个题目 URL，并默认自动提交：
 
 ```bash
-npm run solve:url -- --url "https://www.bjfuacm.com/contest/849/problem/1"
+npm run solve:url -- --url "https://www.example.com/xxx/problem/1"
 ```
 
 单题只生成代码、不提交：
 
 ```bash
-npm run solve:url -- --url "https://www.bjfuacm.com/contest/849/problem/1" --no-submit
+npm run solve:url -- --url "https://www.example.com/xxx/problem/1" --no-submit
 ```
 
 ## 本地 HTML 解析
@@ -185,13 +185,13 @@ npm run init-problem -- --from "output/problems/JourneytotheWest/problem.json"
 按比赛关键词和题号读取：
 
 ```bash
-npm run flow -- --contest-keyword "2025-C++程序设计-OJ8-综合实验" --problem-index 1
+npm run flow -- --contest-keyword "2025-name-OJ-实验" --problem-index 1
 ```
 
 如果页面点击不稳定，可以手动进入题目页后运行：
 
 ```bash
-npm run scan:url -- --url "https://www.bjfuacm.com/contest/849/problem/1"
+npm run scan:url -- --url "https://www.example.com/xxx/problem/1"
 ```
 
 ## 命令列表
@@ -202,13 +202,13 @@ npm run typecheck
 npm run scan:contest-index -- --file "samples/saved-pages/contest-list.html"
 npm run scan:contest-problems -- --file "samples/saved-pages/contest-problems.html"
 npm run scan:problem -- --file "samples/saved-pages/problem-journey-to-the-west.html"
-npm run scan:url -- --url "https://www.bjfuacm.com/contest/849/problem/1"
-npm run flow -- --contest-keyword "2025-C++程序设计-OJ8-综合实验" --problem-index 1
-npm run learn:url -- --url "https://www.bjfuacm.com/contest/849/problem/1"
+npm run scan:url -- --url "https://www.example.com/xxx/problem/1"
+npm run flow -- --contest-keyword "2025-name-OJ-实验" --problem-index 1
+npm run learn:url -- --url "https://www.example.com/xxx/problem/1"
 npm run llm:solution -- --from "output/problems/001-JourneytotheWest/problem.json"
-npm run solve -- --url "https://www.bjfuacm.com/contest/849/problems"
-npm run solve:page -- --url "https://www.bjfuacm.com/contest/849/problems"
-npm run solve:url -- --url "https://www.bjfuacm.com/contest/849/problem/1"
+npm run solve -- --url "https://www.example.com/xxx/problems"
+npm run solve:page -- --url "https://www.example.com/xxx/problems"
+npm run solve:url -- --url "https://www.example.com/xxx/problem/1"
 npm run assist:submit -- --from "output/problems/001-JourneytotheWest/problem.json"
 npm run init-problem -- --from "output/problems/JourneytotheWest/problem.json"
 npm run run:samples -- --problem-dir "output/problems/001-JourneytotheWest"
@@ -236,8 +236,8 @@ npx playwright install chromium
 ```env
 ENABLE_LLM=true
 OPENAI_API_KEY=你的_API_Key
-OPENAI_BASE_URL=https://api.siliconflow.cn/v1
-OPENAI_MODEL=Qwen/Qwen2.5-72B-Instruct
+OPENAI_BASE_URL=
+OPENAI_MODEL=
 ```
 
 ### 已经有 llm-solution.md 或 solution.cpp
