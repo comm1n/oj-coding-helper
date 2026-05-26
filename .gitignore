@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.playwright-profile/
+.env
+
+output/contests/*
+!output/contests/.gitkeep
+output/problems/*
+!output/problems/.gitkeep

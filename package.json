@@ -1,0 +1,35 @@
+{
+  "name": "oj-learning-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "scan:contest-index": "tsx src/index.ts scan:contest-index",
+    "scan:contest-problems": "tsx src/index.ts scan:contest-problems",
+    "scan:problem": "tsx src/index.ts scan:problem",
+    "scan:url": "tsx src/index.ts scan:url",
+    "flow": "tsx src/index.ts flow",
+    "learn:url": "tsx src/index.ts learn:url",
+    "llm:solution": "tsx src/index.ts llm:solution",
+    "solve": "tsx src/index.ts solve:page",
+    "solve:page": "tsx src/index.ts solve:page",
+    "solve:url": "tsx src/index.ts solve:url",
+    "assist:submit": "tsx src/index.ts assist:submit",
+    "init-problem": "tsx src/index.ts init-problem",
+    "run:samples": "tsx src/index.ts run:samples",
+    "analyze:submission": "tsx src/index.ts analyze:submission"
+  },
+  "dependencies": {
+    "cheerio": "1.0.0",
+    "commander": "^12.1.0",
+    "dotenv": "^16.4.7",
+    "playwright": "^1.49.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
