@@ -4,7 +4,7 @@
 
 ## 默认行为
 
-- 本项目用于个人 OJ 网站调试。
+- 本项目用于 OJ 网站练习辅助。
 - `solve` 和 `solve:url` 默认会读取题目、生成 `solution.cpp`、自动填入代码框并点击 Submit。
 - `assist:submit` 在你输入 `CONFIRM_SAVE` 后默认会填入 `solution.cpp` 并点击 Submit。
 - 如果只想生成代码、不提交，使用 `--no-submit`。
